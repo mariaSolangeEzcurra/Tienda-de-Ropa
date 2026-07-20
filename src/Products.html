@@ -1,68 +1,622 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./scripts/ChangeTitle.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="styles/navbar.css">
-    <link rel="stylesheet" href="styles/footer.css">
-    <title>Products</title>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SmartFits | Products</title>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<link rel="stylesheet" href="styles/navbar.css">
+<link rel="stylesheet" href="styles/footer.css">
+<link rel="stylesheet" href="styles/products.css">
+
+
 </head>
-<script>
-    async function authUser(){
-        try{
-            var button = "";
-            var checkUserAuth = localStorage.getItem("token")
-            const  data  = await axios.get('http://localhost:1337/images', {
-            headers: {
-            Authorization:
-            'Bearer ' + checkUserAuth,
-        },
-        });
-        if(data){
-            button = "Logout"
-        }
-        else{
-            button = "Login"
-        }
-    }
-        catch(err){
-            button = "Login"
-        }
-        document.getElementById("userAuth").innerHTML = button
-    }
-
-    function logUser(){
-    var checkUserAuth = localStorage.getItem("token")
-    if(document.getElementById("userAuth").innerHTML === "Logout" && 
-    localStorage.getItem("token")){
-       localStorage.removeItem("token");
-        document.getElementById("userAuth").innerHTML = "Login"   
-    }       
-}
-
-</script>
-<body onload="authUser()">
-    <header>
-        <img class="logo" src="../images/logo.png" alt="logo">
-        <nav>
-            <ul class="nav_links">
-                <li> <a href="index.html">Home </a></li>
-                <li> <a href="Products.html">Products </a></li>
-                <li> <a href="Contacts.html">Contact</a></li>
-                <li> <a href="AboutUs.html">About</a></li>
-            </ul>
-        </nav>
-        <a class="cta" href="Students.html"><button>Admin</button></a>
-        <a class="cta" href="Login.html"><button id="userAuth" onclick="logUser()"></button></a>
-    </header>
-
-    <iframe name="contacts" src="Topics.html" height="1000" width="500" scrolling = "yes"></iframe>
-    <iframe name="products" src="./titles/Shirts.html" height="1000" width="68.9%" scrolling = "yes" id="products-frame"></iframe>
 
 
-    
+<body>
+
+<header class="header">
+
+
+    <div class="brand">
+
+        <span>
+            SmartFits
+        </span>
+
+    </div>
+
+
+
+    <nav>
+
+        <ul class="nav_links">
+
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
+
+
+            <li>
+                <a class="active" href="Products.html">
+                    Products
+                </a>
+            </li>
+
+
+            <li>
+                <a href="AboutUs.html">
+                    About
+                </a>
+            </li>
+
+
+            <li>
+                <a href="Contacts.html">
+                    Contact
+                </a>
+            </li>
+
+
+        </ul>
+
+
+    </nav>
+
+
+
+
+    <div class="header-buttons">
+
+
+        <a href="PatientRegistration.html">
+
+            <button class="btn-outline">
+                Register
+            </button>
+
+        </a>
+
+
+
+        <a href="Login.html">
+
+            <button class="btn-primary">
+                Login
+            </button>
+
+        </a>
+
+
+
+    </div>
+
+
+
+    <div class="cart">
+
+        <i class="fa fa-shopping-bag"></i>
+
+        <span id="cartCount">
+            0
+        </span>
+
+    </div>
+
+
+</header>
+
+
+<section class="products-page">
+
+
+
+<div class="products-tools">
+
+
+<div class="search-box">
+
+<i class="fa fa-search"></i>
+
+<input 
+type="text"
+id="searchInput"
+placeholder="Search products...">
+
+</div>
+
+
+
+<select id="sortProducts">
+
+<option value="default">
+Sort by
+</option>
+
+
+<option value="low">
+Price Low - High
+</option>
+
+
+<option value="high">
+Price High - Low
+</option>
+
+
+</select>
+
+
+</div>
+
+
+
+
+
+
+<div class="categories">
+
+
+<button class="active" onclick="filterProducts('all',this)">
+All
+</button>
+
+
+<button onclick="filterProducts('shirts',this)">
+Shirts
+</button>
+
+
+<button onclick="filterProducts('pants',this)">
+Pants
+</button>
+
+
+<button onclick="filterProducts('accessories',this)">
+Accessories
+</button>
+
+
+<button onclick="filterProducts('collections',this)">
+Collections
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="products-container">
+
+
+
+
+
+<div class="product-card"
+data-category="shirts"
+data-price="79.90">
+
+
+<div class="image-container">
+
+<img src="../images/shirts/shirt1.jpg">
+
+</div>
+
+
+<div class="product-info">
+
+
+<h3>
+Classic White Shirt
+</h3>
+
+
+<p class="price">
+S/ 79.90
+</p>
+
+
+<span class="available">
+Available
+</span>
+
+
+<button onclick="addCart('Classic White Shirt',79.90)">
+
+<i class="fa fa-shopping-cart"></i>
+
+Add to cart
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="product-card"
+data-category="shirts"
+data-price="89.90">
+
+
+<div class="image-container">
+
+<img src="../images/shirts/shirt2.jpg">
+
+</div>
+
+
+<div class="product-info">
+
+
+<h3>
+Casual Elegant Shirt
+</h3>
+
+
+<p class="price">
+S/ 89.90
+</p>
+
+
+<span class="available">
+Available
+</span>
+
+
+<button onclick="addCart('Casual Elegant Shirt',89.90)">
+
+<i class="fa fa-shopping-cart"></i>
+
+Add to cart
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="product-card"
+data-category="pants"
+data-price="109.90">
+
+
+<div class="image-container">
+
+<img src="../images/pants/pants1.jpg">
+
+</div>
+
+
+<div class="product-info">
+
+
+<h3>
+Modern Black Pants
+</h3>
+
+
+<p class="price">
+S/ 109.90
+</p>
+
+
+<span class="available">
+Available
+</span>
+
+
+<button onclick="addCart('Modern Black Pants',109.90)">
+
+<i class="fa fa-shopping-cart"></i>
+
+Add to cart
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="product-card"
+data-category="accessories"
+data-price="149.90">
+
+
+<div class="image-container">
+
+<img src="../images/watches/watches1.jpg">
+
+</div>
+
+
+<div class="product-info">
+
+
+<h3>
+Premium Watch
+</h3>
+
+
+<p class="price">
+S/ 149.90
+</p>
+
+
+<span class="available">
+Available
+</span>
+
+
+<button onclick="addCart('Premium Watch',149.90)">
+
+<i class="fa fa-shopping-cart"></i>
+
+Add to cart
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="product-card"
+data-category="accessories"
+data-price="59.90">
+
+
+<div class="image-container">
+
+<img src="../images/sun-glasses/sg1.jpeg">
+
+</div>
+
+
+<div class="product-info">
+
+
+<h3>
+Classic Sunglasses
+</h3>
+
+
+<p class="price">
+S/ 59.90
+</p>
+
+
+<span class="sold">
+Sold Out
+</span>
+
+
+<button disabled>
+
+Unavailable
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="product-card"
+data-category="collections"
+data-price="179.90">
+
+
+<div class="image-container">
+
+<img src="../images/winter-collections/wc1.jpeg">
+
+</div>
+
+
+<div class="product-info">
+
+
+<h3>
+Winter Collection
+</h3>
+
+
+<p class="price">
+S/ 179.90
+</p>
+
+
+<span class="available">
+Available
+</span>
+
+
+<button onclick="addCart('Winter Collection',179.90)">
+
+<i class="fa fa-shopping-cart"></i>
+
+Add to cart
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+<footer class="footer-distributed">
+
+
+<div class="footer-left">
+
+<h3>
+Smart<span>Fits</span>
+</h3>
+
+
+<p>
+Premium fashion store for modern lifestyles.
+</p>
+
+
+<p>
+SmartFits © 2026
+</p>
+
+
+</div>
+
+
+
+<div class="footer-center">
+
+
+<div>
+
+<i class="fa fa-envelope"></i>
+
+<p>
+smartfits@gmail.com
+</p>
+
+</div>
+
+
+<div>
+
+<i class="fa fa-phone"></i>
+
+<p>
++51 900 000 000
+</p>
+
+</div>
+
+
+</div>
+
+
+
+
+<div class="footer-right">
+
+
+<h3>
+Follow us
+</h3>
+
+
+<div class="footer-icons">
+
+
+<a>
+<i class="fa fa-facebook"></i>
+</a>
+
+
+<a>
+<i class="fa fa-instagram"></i>
+</a>
+
+
+<a>
+<i class="fa fa-twitter"></i>
+</a>
+
+
+</div>
+
+
+</div>
+
+
+</footer>
+
+
+
+
+
+<script src="scripts/products.js"></script>
+
+
 </body>
+
 </html>

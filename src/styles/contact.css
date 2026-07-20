@@ -1,4 +1,4 @@
-.login-section{
+.contact-section{
 
 
 min-height:650px;
@@ -16,14 +16,18 @@ align-items:center;
 background:#fafafa;
 
 
+padding:50px;
+
+
 }
 
 
 
-.login-card{
+
+.contact-card{
 
 
-width:380px;
+width:500px;
 
 
 background:white;
@@ -33,18 +37,18 @@ padding:45px;
 
 
 box-shadow:
-0 15px 35px rgba(0,0,0,.08);
+0 15px 40px rgba(0,0,0,.08);
 
 
 animation:
-fade .6s ease;
+show .6s ease;
 
 
 }
 
 
 
-.login-card h1{
+.contact-card h1{
 
 
 text-align:center;
@@ -53,14 +57,11 @@ text-align:center;
 font-size:32px;
 
 
-color:#222;
-
-
 }
 
 
 
-.login-card p{
+.contact-card p{
 
 
 text-align:center;
@@ -74,8 +75,7 @@ color:#777;
 
 
 
-
-.login-card label{
+.contact-card label{
 
 
 display:block;
@@ -87,15 +87,13 @@ margin-top:20px;
 font-size:14px;
 
 
-color:#333;
-
-
 }
 
 
 
-.login-card input[type="text"],
-.login-card input[type="password"]{
+
+.contact-card input,
+.contact-card textarea{
 
 
 width:100%;
@@ -113,14 +111,19 @@ border:1px solid #ddd;
 box-sizing:border-box;
 
 
-outline:none;
+font-family:Montserrat,sans-serif;
 
 
 }
 
 
 
-.login-card input:focus{
+
+.contact-card input:focus,
+.contact-card textarea:focus{
+
+
+outline:none;
 
 
 border-color:#b08d57;
@@ -131,37 +134,17 @@ border-color:#b08d57;
 
 
 
-.remember{
 
-
-display:flex;
-
-
-align-items:center;
-
-
-gap:8px;
-
-
-margin-top:20px;
-
-
-}
-
-
-
-
-
-.login-button{
+.contact-card button{
 
 
 width:100%;
 
 
-padding:14px;
-
-
 margin-top:25px;
+
+
+padding:14px;
 
 
 background:#111;
@@ -183,7 +166,8 @@ transition:.3s;
 
 
 
-.login-button:hover{
+
+.contact-card button:hover{
 
 
 background:#b08d57;
@@ -194,29 +178,13 @@ background:#b08d57;
 
 
 
-
-.register-link a{
-
-
-color:#b08d57;
-
-
-text-decoration:none;
-
-
-}
-
-
-
-
-
-#message{
+#response{
 
 
 margin-top:20px;
 
 
-font-weight:500;
+font-weight:600;
 
 
 }
@@ -224,23 +192,29 @@ font-weight:500;
 
 
 
-@keyframes fade{
+@keyframes show{
 
 
 from{
 
+
 opacity:0;
 
+
 transform:translateY(30px);
+
 
 }
 
 
 to{
 
+
 opacity:1;
 
+
 transform:translateY(0);
+
 
 }
 

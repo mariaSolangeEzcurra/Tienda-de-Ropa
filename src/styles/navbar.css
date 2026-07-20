@@ -1,60 +1,306 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
+
+
+
+/* ==========================
+   HEADER
+========================== */
+
 
 header {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    background-color: #24252A;
+
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+
+    padding:25px 8%;
+
+
+    background:#ffffff;
+
+
+    border-bottom:1px solid #eeeeee;
+
+
+    box-sizing:border-box;
+
 
 }
 
 
-li, a, button{
-    font-family: "Montserrat", sans-serif;
-    font-weight: 500;
-    font-size: 16px;
-    color: #edf0f1;
-    text-decoration: none;
+
+
+
+
+/* ==========================
+   BRAND
+========================== */
+
+
+.brand {
+
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+
 }
+
+
+
+.brand span {
+
+
+    font-family:"Montserrat",sans-serif;
+
+    font-size:24px;
+
+    font-weight:600;
+
+    color:#111;
+
+
+}
+
+
+
+.logo {
+
+
+    width:55px;
+
+    height:55px;
+
+    object-fit:contain;
+
+}
+
+
+
+
+
+/* ==========================
+   NAVIGATION
+========================== */
+
+
+.nav_links {
+
+
+    list-style:none;
+
+    display:flex;
+
+    gap:35px;
+
+    margin:0;
+
+    padding:0;
+
+
+}
+
+
+
+.nav_links li a {
+
+
+    font-family:"Montserrat",sans-serif;
+
+
+    color:#333;
+
+
+    font-size:15px;
+
+
+    font-weight:500;
+
+
+    text-decoration:none;
+
+
+    transition:.3s;
+
+
+}
+
+
+
+.nav_links li a:hover {
+
+
+    color:#b08d57;
+
+
+}
+
+
+
+
+
+/* ==========================
+   BUTTONS
+========================== */
+
+
+.header-buttons {
+
+
+    display:flex;
+
+    gap:15px;
+
+
+}
+
+
+
+
+
+.header-buttons button {
+
+
+    font-family:"Montserrat",sans-serif;
+
+
+    padding:11px 25px;
+
+
+    border-radius:25px;
+
+
+    cursor:pointer;
+
+
+    font-size:14px;
+
+
+    transition:.3s;
+
+
+}
+
+
+
+
+
+
+.btn-outline {
+
+
+    background:white;
+
+
+    border:1px solid #111;
+
+
+    color:#111;
+
+
+}
+
+
+
+
+
+.btn-outline:hover {
+
+
+    background:#111;
+
+    color:white;
+
+
+}
+
+
+
+
+
+
+.btn-primary {
+
+
+    background:#111;
+
+
+    color:white;
+
+
+    border:1px solid #111;
+
+
+}
+
+
+
+
+.btn-primary:hover {
+
+
+    background:#b08d57;
+
+
+    border-color:#b08d57;
+
+
+}
+
+
+
+
+
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+
+@media(max-width:900px){
+
 
 header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px 10%;
-    text-align: center;
+
+
+    flex-direction:column;
+
+    gap:25px;
+
+
 }
 
-.logo{
-    cursor: pointer;
-}
+
 
 .nav_links{
-    text-align: center;
-    list-style: none;
+
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+
 }
 
-.nav_links li{
-    display: inline-block;
-    padding : 0 20px;
+
+
+.header-buttons{
+
+
+    justify-content:center;
+
+
 }
 
-.nav_links li a{
-    transition: all 0.3s ease 0s;
-}
-.nav_links li a:hover{
-    color: #0088a9
-}
 
-button{
-    padding: 9px 25px;
-    background-color: rgba(0, 136, 169, 1);
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.3s ease 0s;
-}
 
-button:hover{
-    background-color: rgba(0, 136, 169, 0.8);
 }
