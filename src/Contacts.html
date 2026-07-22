@@ -15,6 +15,8 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome
 
 <link rel="stylesheet" href="styles/navbar.css">
 <link rel="stylesheet" href="styles/footer.css">
+<link rel="stylesheet" href="styles/styles.css">
+
 
 
 <style>
@@ -47,6 +49,40 @@ padding:40px;
 
 
 
+.user-area{
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+
+.user-profile{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:15px;
+    color:#222;
+    white-space:nowrap;
+}
+
+.logout-btn{
+
+    background:white;
+    border: 1px solid #ddd !important;
+    padding:12px 28px;
+    border-radius:25px;
+    cursor:pointer;
+    transition:.3s;
+
+}
+
+
+.logout-btn:hover{
+
+    background:#111;
+    color:white;
+
+}
 .contact-card{
 
 background:white;
@@ -329,26 +365,18 @@ color:#dc3545;
     </nav>
 
 
-
-    <div class="header-buttons">
-
-        <a href="PatientRegistration.html">
-            <button class="btn-outline">
-                Register
-            </button>
-        </a>
-
-
-        <a href="Login.html">
-
-            <button class="btn-primary">
-                Login
-            </button>
-
-        </a>
-
-
-    </div>
+  <div class="header-buttons user-area" id="userArea">
+<a href="PatientRegistration.html">
+<button class="btn-outline">
+Register
+</button>
+</a>
+<a href="Login.html">
+<button class="btn-primary">
+Login
+</button>
+</a>
+</div>
     <div class="cart">
 
 <i class="fa fa-shopping-bag"></i>
@@ -697,6 +725,60 @@ this.reset();
 
 });
 
+
+
+</script>
+<script>
+
+
+const userArea = document.getElementById("userArea");
+
+
+const currentUser = JSON.parse(
+localStorage.getItem("currentUser")
+);
+
+
+
+if(currentUser){
+
+
+userArea.innerHTML = `
+
+<div class="user-profile">
+
+<i class="fa fa-user"></i>
+
+<span>
+${currentUser.name}
+</span>
+
+</div>
+
+
+<button class="logout-btn" id="logout">
+Logout
+</button>
+
+`;
+
+
+
+document
+.getElementById("logout")
+.addEventListener("click",()=>{
+
+
+localStorage.removeItem("currentUser");
+
+
+window.location.reload();
+
+
+});
+
+
+}
 
 
 </script>

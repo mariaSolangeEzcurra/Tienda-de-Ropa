@@ -303,4 +303,65 @@ header{
 
 
 
+.username{
+
+    display:flex;
+    align-items:center;
+    font-size:15px;
+    font-weight:600;
+    color:#222;
+
+}
+
+
+.username i{
+    font-size:18px;
+}
+
+
+
+#userArea{
+
+    display:flex;
+    align-items:center;
+
+}
+
+
+
+#userArea button{
+
+    cursor:pointer;
+
+    border-radius:25px;
+
+    transition:.3s ease;
+
+}
+
+
+
+#userArea .btn-outline{
+
+    background:white;
+
+    color:#222;
+
+    border:1px solid #222;
+
+    padding:10px 22px;
+
+}
+
+
+
+#userArea .btn-outline:hover{
+
+    background:#111;
+
+    color:white;
+
+    transform:translateY(-2px);
+
+}
 }

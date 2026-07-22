@@ -4,34 +4,35 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 
 <title>SmartFits | Register</title>
 
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <link rel="stylesheet" href="styles/navbar.css">
 <link rel="stylesheet" href="styles/footer.css">
 <link rel="stylesheet" href="styles/RegisterStyles.css">
+<link rel="stylesheet" href="styles/styles.css">
+
+
 </head>
+
 <body>
 
-<!-- HEADER -->
 
 <header>
-
 
 <div class="brand">
 <span>
 SmartFits
 </span>
 </div>
+
+
 <nav>
 
 <ul class="nav_links">
-
 
 <li>
 <a href="../index.html">
@@ -39,13 +40,11 @@ Home
 </a>
 </li>
 
-
 <li>
 <a href="Products.html">
 Products
 </a>
 </li>
-
 
 <li>
 <a href="AboutUs.html">
@@ -53,51 +52,36 @@ About
 </a>
 </li>
 
-
 <li>
 <a href="Contacts.html">
 Contact
 </a>
 </li>
 
-
 </ul>
-
 
 </nav>
 
 
-
 <div class="header-buttons">
 
-
 <a href="PatientRegistration.html">
-
 <button class="btn-primary">
 Register
 </button>
-
 </a>
 
 
 <a href="Login.html">
-
 <button class="btn-outline">
 Login
 </button>
-
 </a>
-
 
 </div>
 
 
-
 </header>
-
-
-
-
 
 
 
@@ -118,15 +102,12 @@ Join SmartFits and discover your style
 
 
 
-
 <form id="registerForm">
-
 
 
 <label>
 Nombre completo *
 </label>
-
 
 <input 
 type="text"
@@ -135,13 +116,9 @@ required>
 
 
 
-
-
-
 <label>
 Correo electrónico *
 </label>
-
 
 <input 
 type="email"
@@ -150,12 +127,9 @@ required>
 
 
 
-
-
 <label>
 Usuario *
 </label>
-
 
 <input 
 type="text"
@@ -164,12 +138,9 @@ required>
 
 
 
-
-
 <label>
 Contraseña *
 </label>
-
 
 <input 
 type="password"
@@ -178,21 +149,14 @@ required>
 
 
 
-
-
 <label>
 Confirmar contraseña *
 </label>
-
 
 <input 
 type="password"
 id="confirmPassword"
 required>
-
-
-
-
 
 
 
@@ -202,16 +166,13 @@ Preferencias de compra (opcional)
 
 
 
-
 <label>
 Talla habitual
 </label>
 
-
 <select id="size">
 
-
-<option>
+<option value="Seleccione">
 Seleccione
 </option>
 
@@ -235,10 +196,7 @@ L
 XL
 </option>
 
-
 </select>
-
-
 
 
 
@@ -247,9 +205,7 @@ XL
 Estilo favorito
 </label>
 
-
 <select id="style">
-
 
 <option>
 Casual
@@ -267,11 +223,7 @@ Deportivo
 Elegante
 </option>
 
-
 </select>
-
-
-
 
 
 
@@ -280,9 +232,7 @@ Elegante
 Categoría de interés
 </label>
 
-
 <select id="category">
-
 
 <option>
 Camisas
@@ -300,13 +250,7 @@ Relojes
 Accesorios
 </option>
 
-
 </select>
-
-
-
-
-
 
 
 
@@ -319,12 +263,7 @@ Create account
 </button>
 
 
-
-
 <p id="message"></p>
-
-
-
 
 
 <p class="login-link">
@@ -335,13 +274,10 @@ Create account
 Inicia sesión
 </a>
 
-
 </p>
 
 
-
 </form>
-
 
 
 </div>
@@ -352,35 +288,25 @@ Inicia sesión
 
 
 
-
-
-
-
-
 <footer class="footer-distributed">
 
 
 <div class="footer-left">
 
-
 <h3>
 Smart<span>Fits</span>
 </h3>
 
-
 <p>
 Premium fashion store.
 </p>
-
 
 <p class="footer-company-name">
 SmartFits © 2026
 </p>
 
 
-
 </div>
-
 
 
 <div class="footer-center">
@@ -395,7 +321,6 @@ smartfits@gmail.com
 </p>
 
 </div>
-
 
 
 <div>
@@ -415,7 +340,6 @@ smartfits@gmail.com
 
 <div class="footer-right">
 
-
 <h3>
 Follow us
 </h3>
@@ -427,11 +351,9 @@ Follow us
 <i class="fa fa-facebook"></i>
 </a>
 
-
 <a>
 <i class="fa fa-instagram"></i>
 </a>
-
 
 <a>
 <i class="fa fa-twitter"></i>
@@ -444,12 +366,7 @@ Follow us
 </div>
 
 
-
 </footer>
-
-
-
-
 
 
 
@@ -467,15 +384,15 @@ e.preventDefault();
 
 
 const name =
-document.getElementById("name").value;
+document.getElementById("name").value.trim();
 
 
 const email =
-document.getElementById("email").value;
+document.getElementById("email").value.trim();
 
 
 const username =
-document.getElementById("username").value;
+document.getElementById("username").value.trim();
 
 
 const password =
@@ -491,22 +408,16 @@ document.getElementById("message");
 
 
 
-
 if(password !== confirmPassword){
-
 
 message.style.color="red";
 
 message.innerHTML=
 "✕ Las contraseñas no coinciden";
 
-
 return;
 
-
 }
-
-
 
 
 
@@ -517,47 +428,63 @@ localStorage.getItem("users")
 
 
 
-
-
-const exists =
-users.some(
-u=>u.username===username
+const usernameExists =
+users.find(
+user => user.username === username
 );
 
 
 
-
-
-if(exists){
-
+if(usernameExists){
 
 message.style.color="red";
 
 message.innerHTML=
-"✕ El usuario ya existe";
-
+"✕ Este usuario ya está registrado";
 
 return;
 
+}
+
+
+
+const emailExists =
+users.find(
+user => user.email === email
+);
+
+
+
+if(emailExists){
+
+message.style.color="red";
+
+message.innerHTML=
+"✕ Este correo ya está registrado";
+
+return;
 
 }
 
 
 
 
+const newUser={
 
 
-
-let user={
+id:Date.now(),
 
 
 name:name,
 
+
 email:email,
+
 
 username:username,
 
-password:password,
+
+password:btoa(password),
 
 
 preferences:{
@@ -575,7 +502,11 @@ category:
 document.getElementById("category").value
 
 
-}
+},
+
+
+createdAt:
+new Date().toISOString()
 
 
 };
@@ -583,11 +514,7 @@ document.getElementById("category").value
 
 
 
-
-
-users.push(user);
-
-
+users.push(newUser);
 
 
 
@@ -598,28 +525,19 @@ JSON.stringify(users)
 
 
 
+localStorage.setItem(
+"currentUser",
+JSON.stringify(newUser)
+);
 
 
 
 
-message.style.display="block";
-
-
-message.style.background="#e8f7ee";
-
-message.style.padding="15px";
-
-message.style.borderRadius="10px";
-
-
-message.style.color="#198754";
-
+message.style.color="green";
 
 
 message.innerHTML=
-
-"✓ Cuenta creada correctamente. Ahora puedes iniciar sesión";
-
+"✓ Cuenta creada correctamente";
 
 
 
@@ -629,12 +547,19 @@ document
 
 
 
+setTimeout(()=>{
+
+window.location.href="Login.html";
+
+},1500);
+
+
+
 });
 
 
 
 </script>
-
 
 
 </body>
